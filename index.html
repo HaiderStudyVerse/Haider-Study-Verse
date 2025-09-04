@@ -1,0 +1,88 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Haider Study Verse - Login</title>  
+  <style>  
+    body { font-family: Arial, sans-serif; background: #f4f6f9; margin:0; display:flex; justify-content:center; align-items:center; height:100vh; }  
+    .card { background:white; padding:30px; border-radius:10px; width:350px; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; }  
+    h2 { margin-bottom:20px; color:#007bff; }  
+    input { width:100%; padding:10px; margin:10px 0; border:1px solid #ccc; border-radius:6px; }  
+    button { width:100%; padding:10px; background:#007bff; border:none; border-radius:6px; color:white; font-weight:bold; cursor:pointer; margin-top:10px; }  
+    button:hover { background:#0056b3; }  
+    .links { margin-top:15px; display:flex; justify-content:space-between; font-size:14px; }  
+    .links a { color:#007bff; text-decoration:none; cursor:pointer; }  
+  
+    /* Admin Modal */  
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; }  
+    .modal-content { background:white; padding:20px; border-radius:8px; width:300px; text-align:center; }  
+    .close { float:right; font-size:20px; cursor:pointer; color:red; }  
+  </style>  
+</head>  
+<body>  
+  
+  <div class="card">  
+    <h2>Haider Study Verse</h2>  
+    <input type="email" placeholder="Enter your email">  
+    <input type="text" id="accessKey" placeholder="Enter Access Key">  
+    <button onclick="loginUser()">Enter Books</button>  
+  
+    <div class="links">  
+      <a href="https://arolinks.com/Cih0" target="_blank">Get Password</a>  
+      <a onclick="openAdmin()">Admin Login</a>  
+    </div>  
+  </div>  
+  
+  <!-- Admin Modal -->  
+  <div class="modal" id="adminModal">  
+    <div class="modal-content">  
+      <span class="close" onclick="closeAdmin()">&times;</span>  
+      <h3>Admin Login</h3>  
+      <input type="text" id="adminUser" placeholder="Username">  
+      <input type="password" id="adminPass" placeholder="Password">  
+      <button onclick="loginAdmin()">Login</button>  
+    </div>  
+  </div>  
+  
+  <script>  
+    // 1000 Random Alphanumeric Keys  
+    const validKeys = [  
+      "A1B2C3","X9Y8Z7","H1S2V3","K9L8M7","Q1W2E3","P4O5I6","J7K8L9","M1N2B3","T4Y5U6","Z1X2C3",  
+      "H5A8D2","S3V9E6","L2P4Q7","G8F1R3","N6K2D9","B7Y3W4","C5M1T8","U2E7I5","O9P2A6","J3H4X1",  
+      "F9L6M2","T7R5N3","C2Q8B9","K5W7E4","V6S1A3","M8P2Z9","O3I6X7","N4L2H5","A7R9J1","G2V5K6",  
+      "P3T7S8","B4O1D9","H6N5C2","E8Q3M7","U9K2J5","W6Z8Y3","X1C7A5","V3G6L2","R5O8Q1","Y7T4N6"  
+      // yahan maine sample dikhaya hai, baki 1000 full keys array mai dal du  
+    ];  
+  
+    function loginUser() {  
+      let key = document.getElementById("accessKey").value.trim();  
+      if (validKeys.includes(key)) {  
+        alert("✅ Login Successful!");  
+        window.location.href = "books.html";  
+      } else {  
+        alert("❌ Invalid Access Key!");  
+      }  
+    }  
+  
+    function openAdmin() {  
+      document.getElementById("adminModal").style.display = "flex";  
+    }  
+    function closeAdmin() {  
+      document.getElementById("adminModal").style.display = "none";  
+    }  
+    function loginAdmin() {  
+      let user = document.getElementById("adminUser").value;  
+      let pass = document.getElementById("adminPass").value;  
+  
+      if(user === "HaiderStudyVerse" && pass === "Haider8527") {  
+        alert("✅ Admin login successful!");  
+        window.location.href = "books.html";   
+      } else {  
+        alert("❌ Invalid Admin Credentials!");  
+      }  
+    }  
+  </script>  
+  
+</body>  
+</html>
