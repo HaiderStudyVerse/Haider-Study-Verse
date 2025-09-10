@@ -46,19 +46,17 @@
   </div>  
   
   <script>  
-    // 1000 Random Alphanumeric Keys  
+    // 1000 Random Alphanumeric Keys (sample only here)  
     const validKeys = [  
-      "A1B2C3","X9Y8Z7","H1S2V3","K9L8M7","Q1W2E3","P4O5I6","J7K8L9","M1N2B3","T4Y5U6","Z1X2C3",  
-      "H5A8D2","S3V9E6","L2P4Q7","G8F1R3","N6K2D9","B7Y3W4","C5M1T8","U2E7I5","O9P2A6","J3H4X1",  
-      "F9L6M2","T7R5N3","C2Q8B9","K5W7E4","V6S1A3","M8P2Z9","O3I6X7","N4L2H5","A7R9J1","G2V5K6",  
-      "P3T7S8","B4O1D9","H6N5C2","E8Q3M7","U9K2J5","W6Z8Y3","X1C7A5","V3G6L2","R5O8Q1","Y7T4N6"  
-      // yahan maine sample dikhaya hai, baki 1000 full keys array mai dal du  
+      "A1B2C3","X9Y8Z7","H1S2V3","K9L8M7","Q1W2E3","P4O5I6","J7K8L9","M1N2B3","T4Y5U6","Z1X2C3"  
     ];  
   
     function loginUser() {  
       let key = document.getElementById("accessKey").value.trim();  
       if (validKeys.includes(key)) {  
         alert("✅ Login Successful!");  
+        // session flag set karna  
+        sessionStorage.setItem("loggedIn", "true");  
         window.location.href = "books.html";  
       } else {  
         alert("❌ Invalid Access Key!");  
@@ -77,6 +75,7 @@
   
       if(user === "HaiderStudyVerse" && pass === "Haider8527") {  
         alert("✅ Admin login successful!");  
+        sessionStorage.setItem("loggedIn", "true");  
         window.location.href = "books.html";   
       } else {  
         alert("❌ Invalid Admin Credentials!");  
