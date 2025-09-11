@@ -46,16 +46,34 @@
   </div>  
   
   <script>  
-    // 1000 Random Alphanumeric Keys (sample only here)  
+    // ✅ 100 Fixed Alphanumeric Keys  
     const validKeys = [  
-      "A1B2C3","X9Y8Z7","H1S2V3","K9L8M7","Q1W2E3","P4O5I6","J7K8L9","M1N2B3","T4Y5U6","Z1X2C3"  
+      "0EU9A4","0HVELC","0PBU2N","0RGL4E","0ZJAAV",  
+      "1B9XK6","1C5NQ8","1D3M7Y","1F0R2T","1H8VZP",  
+      "2A9K3M","2B6WJ1","2F4LQ9","2G7S0U","2Y5NTP",  
+      "3A1QX8","3B7LZ4","3C9V2H","3D6M5R","3K0P8S",  
+      "4A2J7V","4B9N6Y","4C1T3M","4E8Q5P","4H7R0K",  
+      "5A6Z2L","5B3X9N","5C0V7T","5D4M1Q","5F8P6S",  
+      "6A5K2R","6B7J0V","6C9N1Y","6D3X8M","6E4T5P",  
+      "7A0Q9L","7B2V6K","7C8M3S","7D1P4N","7F5R7Y",  
+      "8A3J6T","8B9X1V","8C4N0M","8D2Q5P","8G7K8R",  
+      "9A6V2H","9B1M5L","9C8P3N","9D4X7Q","9E0R6S",  
+      "A0B9K2","A1C4M7","A2D8P3","A3E5V0","A4F7N6",  
+      "B0G2Q9","B1H6X4","B2J8R1","B3K5P7","B4L9M0",  
+      "C0M1V8","C1N7Q5","C2P3K6","C3R9X2","C4S0L7",  
+      "D0T5M1","D1V8P4","D2W3Q9","D3X6K0","D4Y7N2",  
+      "E0Z1R5","E1A6P3","E2B9M4","E3C7Q0","E4D2V8",  
+      "F0E5K9","F1G3N6","F2H8P0","F3J4R1","F4K7X2",  
+      "G0L1M8","G1M9Q5","G2N4P7","G3P6V0","G4Q2K3",  
+      "H0R8X1","H1S5M9","H2T3P6","H3U7Q2","H4V0K5",  
+      "J0W1N8","J1X9P4","J2Y3R6","J3Z7M0","J4A2Q9",  
+      "K0B5P1","K1C8M3","K2D4V7","K3E6Q0","K4F9R2"  
     ];  
   
     function loginUser() {  
       let key = document.getElementById("accessKey").value.trim();  
       if (validKeys.includes(key)) {  
         alert("✅ Login Successful!");  
-        // session flag set karna  
         sessionStorage.setItem("loggedIn", "true");  
         window.location.href = "books.html";  
       } else {  
