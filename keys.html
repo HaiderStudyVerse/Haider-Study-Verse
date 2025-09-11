@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HaiderStudyVerse Key Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      text-align: center;
+      width: 320px;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    #keyDisplay {
+      margin: 15px 0;
+      padding: 12px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #007BFF;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>HaiderStudyVerse Key Generator</h2>
+    <div id="keyDisplay">Click "Generate Key"</div>
+    <button id="genBtn" onclick="generateKey()">Generate Key</button>
+  </div>
+
+  <script>
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const KEY_LENGTH = 6;
+
+    function makeKey() {
+      let out = "";
+      for (let i = 0; i < KEY_LENGTH; i++) {
+        out += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return out;
+    }
+
+    function generateKey() {
+      const key = makeKey();
+      document.getElementById("keyDisplay").innerText = key;
+
+      // Save key in localStorage for this visit
+      localStorage.setItem("sessionKey", key);
+
+      // Disable button
+      const btn = document.getElementById("genBtn");
+      btn.disabled = true;
+      btn.innerText = "Key Generated";
+    }
+
+    // Check if a key already exists in localStorage
+    window.onload = () => {
+      const savedKey = localStorage.getItem("sessionKey");
+      if (savedKey) {
+        // Show saved key, disable button
+        document.getElementById("keyDisplay").innerText = savedKey;
+        const btn = document.getElementById("genBtn");
+        btn.disabled = true;
+        btn.innerText = "Key Generated";
+      }
+    };
+
+    // Clear key on full page close (new visit = new key)
+    window.addEventListener("beforeunload", () => {
+      localStorage.removeItem("sessionKey");
+    });
+  </script>
+</body>
+</html>
