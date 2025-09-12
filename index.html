@@ -29,7 +29,7 @@
     <button onclick="loginUser()">Enter Books</button>  
   
     <div class="links">  
-      <a href="https://arolinks.com/QrFsf" target="_blank">Get Password</a>  
+      <a href="https://arolinks.com/Cih0" target="_blank">Get Password</a>  
       <a onclick="openAdmin()">Admin Login</a>  
     </div>  
   </div>  
@@ -100,6 +100,54 @@
       }  
     }  
   </script>  
-  
+  <!-- Visitor Counter Box -->
+<div id="visitor-box">
+  <div class="vc-title">Visit Count</div>
+  <div id="vc-value" class="vc-number">0</div>
+</div>
+
+<style>
+  #visitor-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffffff;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    width: 120px;
+  }
+  .vc-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+  .vc-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+
+<script>
+  const namespace = 'haider-study-verse';
+  const key = 'total-visitors';
+
+  async function updateCounter() {
+    try {
+      const res = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+      const data = await res.json();
+      document.getElementById('vc-value').textContent = data.value;
+    } catch (e) {
+      document.getElementById('vc-value').textContent = 'N/A';
+    }
+  }
+
+  updateCounter();
+</script>
 </body>  
 </html>
